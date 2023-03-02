@@ -1,25 +1,43 @@
-import logo from './logo.svg';
+import { BrowserRouter as Router } from 'react-router-dom';
+import { Routes, Route } from 'react-router-dom';
 import './App.css';
+import Start from './components/Start';
+import Addnewdog from './components/Addnewdog';
+import MainNavigation from './components/MainNavigation';
 
+
+// import DogList from './components/DogList';
+import Allprofile from './components/Allprofile';
 function App() {
+  //new code Added
+  // const [ dogs, setDogs ] = useState([]);
+
+  // const addNewDog = (dogData) => {
+  //   setDogs((dogs) => [ ...dogs, dogData ]);
+  // console.log(dogs)
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <MainNavigation />
+      <Routes>
+        <Route exact path="/" element={<Start />} />
+        <Route path="/addnewdog" element={<Addnewdog />} />
+        {/* <Route path="/doglist" element={<DogList />} /> */}
+        {/* <Route exact path="/" element={<DogList />} /> */}
+
+        <Route path="/profile" element={<Allprofile />} />
+      </Routes>
+    </Router>
   );
 }
+
+
+
+
+
+
+
+
+
+
 
 export default App;
