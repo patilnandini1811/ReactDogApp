@@ -164,3 +164,14 @@ input {
 p {
   margin-left: 20%;
 }
+
+.image-container {
+  flex-direction: row;
+  margin-top: -22%;
+  margin-right: 10%;
+  color: darkgreen;
+}
+
+h3 {
+  text-align: center;
+}
