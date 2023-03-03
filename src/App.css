@@ -206,3 +206,8 @@ h5 {
   margin-left: 48%;
   margin-top: 3px;
 }
+
+button {
+  background-color: rgb(123, 109, 232);
+  margin-left: 19px;
+}

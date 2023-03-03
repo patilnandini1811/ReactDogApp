@@ -17,6 +17,18 @@ export default function Addnewdog(props) {
       });
   }, []);
 
+  //Here I added remove buttons:
+  useEffect(() => {
+    const dogData = JSON.parse(localStorage.getItem('dogData')) || [];
+    setDogs(dogData);
+  }, []);
+  // Here is Handleremove function
+  // const handleRemove = (id) => {
+  //   const updatedData = dogs.filter(dog => dog.id !== id);
+  //   localStorage.setItem('dogData', JSON.stringify(updatedData));
+  //   setDogs(updatedData);
+  // };
+
   const handleSubmit = (event) => {
     event.preventDefault();
 
@@ -59,10 +71,16 @@ export default function Addnewdog(props) {
           <label htmlFor="exampleFormControlTextarea1" className="form-label">Brief description</label>
           <textarea className="form-control" id="exampleFormControlTextarea1" rows="8" name="description"></textarea></div>
         Friends:
-        <p className='friends'>
 
-          <Link to="/profile"></Link><br />
-          <Link to="/profile"></Link></p>
+        <p className='friends'>
+          {dogs.map((dog) => (
+            <span key={dog.id}>
+              <Link to={`/profile/${dog.id}`}>{dog.name}</Link>
+              {/* <button onClick={() => handleRemove(dog.id)}>Remove</button> */}
+              <br />
+            </span>
+          ))}
+        </p>
         <input className="btn btn-success" type="submit" value="Submit" onSubmit={handleSubmit}></input>
       </form>
     </>

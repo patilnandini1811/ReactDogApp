@@ -1,8 +1,14 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
+// import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 export default function Start(props) {
-  const dogData = JSON.parse(localStorage.getItem('dogData')) || [];
+  const [ dogData, setDogData ] = useState(JSON.parse(localStorage.getItem('dogData')) || []);
+  const handleRemoveDog = (id) => {
+    const updatedDogData = dogData.filter(dog => dog.id !== id);
+    localStorage.setItem('dogData', JSON.stringify(updatedDogData));
+    setDogData(updatedDogData);
+  };
 
   return (
     <>
@@ -13,9 +19,11 @@ export default function Start(props) {
 
 
             <ul>
-              {dogData.map(dog => (
+              {dogData.map((dog) => (
                 <li key={dog.id}>
                   <Link to={`/dog/${dog.id}`}>{dog.name}</Link> - {dog.age} years old
+                  <button onClick={() => handleRemoveDog(dog.id)}>X</button>
+                  <i className="fa-duotone fa-xmark"></i>
                 </li>
               ))}
             </ul>
