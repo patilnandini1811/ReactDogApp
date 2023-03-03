@@ -175,3 +175,34 @@ p {
 h3 {
   text-align: center;
 }
+
+.profile-container {
+  display: flex;
+  flex-direction: column;
+  margin-left: 3%;
+}
+
+.profile-image {
+  width: 200px;
+  height: 200px;
+
+
+}
+
+.image-container {
+  display: flex;
+  flex-direction: row;
+  margin-top: 10%;
+
+}
+
+h5 {
+  margin-left: 192px;
+}
+
+.goback {
+  margin: 15px;
+  /* margin-left: 10px; */
+  margin-left: 48%;
+  margin-top: 3px;
+}
