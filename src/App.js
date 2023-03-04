@@ -5,6 +5,7 @@ import Start from './components/Start';
 import Addnewdog from './components/Addnewdog';
 import MainNavigation from './components/MainNavigation';
 import Allprofile from './components/Allprofile';
+import EditDog from './components/EditDog';
 function App() {
 
   return (
@@ -14,19 +15,9 @@ function App() {
         <Route exact path="/" element={<Start />} />
         <Route path="/addnewdog" element={<Addnewdog />} />
         <Route path="/dog/:id" element={<Allprofile />} />
+        <Route path="/editdog/:id" element={<EditDog />} />
       </Routes>
     </Router>
   );
 }
-
-
-
-
-
-
-
-
-
-
-
 export default App;

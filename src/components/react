@@ -155,3 +155,16 @@
 //     </>
 //   );
 // }
+
+
+
+
+
+// Here is Handleremove function
+// const handleRemove = (id) => {
+//   const updatedData = dogs.filter(dog => dog.id !== id);
+//   localStorage.setItem('dogData', JSON.stringify(updatedData));
+//   setDogs(updatedData);
+// };
+
+{/* <button onClick={() => handleRemove(dog.id)}>Remove</button> */ }

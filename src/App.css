@@ -88,6 +88,7 @@ body {
 .btn {
   margin-left: 100%;
   margin-top: -51%;
+  background-color: green;
 }
 
 .list-switch {
@@ -107,9 +108,9 @@ body {
 } */
 
 .rounded {
-  margin-top: -55px;
+  margin-top: -45px;
   width: 200px;
-  height: 200px;
+  height: 190px;
   /* float: right; */
   /* float: left; */
   margin-left: 80%;
@@ -122,28 +123,28 @@ body {
 .form {
   display: flex;
   flex-direction: column;
-  /* float: right; */
-  /* width: 415px;
-  height: 128px; */
-  margin-left: 2%;
+
+  margin-left: 15%;
   margin-top: 0%;
 }
 
 #exampleFormControlTextarea1 {
-  width: 415px;
-  height: 128px;
+  width: 250px;
+  height: 50px;
+  margin-top: -20%;
 }
 
 .btn-success {
 
   float: right;
-  margin-top: -1%;
-  width: 10%;
+  margin-top: 5%;
+  width: 61%;
   height: 31px;
-  margin-left: 1%;
+  margin-left: 0%;
   float: left;
   float: right;
   margin-right: 84%;
+
 }
 
 .friends {
@@ -157,8 +158,10 @@ input {
 }
 
 .goback {
-  margin-left: 63%;
+  margin-left: 110%;
   margin-top: 5%;
+  float: right;
+  margin-right: -183%;
 }
 
 p {
@@ -183,8 +186,8 @@ h3 {
 }
 
 .profile-image {
-  width: 200px;
-  height: 200px;
+  width: 190px;
+  height: 190px;
 
 
 }
@@ -197,17 +200,87 @@ h3 {
 }
 
 h5 {
-  margin-left: 192px;
+  margin-left: 299px;
 }
 
 .goback {
   margin: 15px;
   /* margin-left: 10px; */
-  margin-left: 48%;
-  margin-top: 3px;
+  margin-left: 38%;
+  margin-top: 10px;
+  margin-right: -10%;
 }
 
 button {
   background-color: rgb(123, 109, 232);
   margin-left: 19px;
+}
+
+select {
+  width: 63%;
+}
+
+label {
+  display: flex;
+}
+
+input {
+  margin-left: -1%;
+  width: 56%;
+}
+
+.container1 {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  width: 40%;
+  border-style: solid;
+  border-color: green;
+  margin-left: 35%;
+}
+
+.container2 {
+  display: flex;
+  flex-direction: row;
+  height: 100%;
+  margin-top: 10%;
+  width: 40%;
+  border-style: solid;
+  border-color: green;
+  margin-left: 45%;
+  padding: 0%;
+  margin: 5%;
+
+
+}
+
+.btn btn-primary my-3 {
+  margin: 22%;
+  background-color: green;
+}
+
+.col-md-6 {
+  margin-top: 20%;
+}
+
+#description {
+  margin: 1%;
+  /* margin-left: 1%; */
+  margin-left: -8%;
+}
+
+.goback1 {
+  margin-left: 80%;
+}
+
+.form1 {
+  flex-direction: column;
+  display: flex;
+  /* justify-content: center; */
+  margin-left: -43%;
+}
+
+.form-lable {
+  margin-top: -59%;
 }

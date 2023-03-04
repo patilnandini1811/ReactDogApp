@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-// import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 export default function Start(props) {
   const [ dogData, setDogData ] = useState(JSON.parse(localStorage.getItem('dogData')) || []);
