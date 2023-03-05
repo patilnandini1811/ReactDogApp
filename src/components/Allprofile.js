@@ -1,67 +1,4 @@
-// import React, { useState, useEffect } from 'react';
-// import { Link } from 'react-router-dom';
 
-// export default function Allprofile(props) {
-//   const dogId = props.match.params.dogId;
-//   const [ dogImage, setDogImage ] = useState('');
-//   const [ dogData, setDogData ] = useState({});
-//   const [ friends, setFriends ] = useState([]);
-//   const [ presence, setPresence ] = useState(false);
-
-//   useEffect(() => {
-//     fetch('https://dog.ceo/api/breeds/image/random')
-//       .then(response => response.json())
-//       .then(data => {
-//         setDogImage(data.message);
-//       });
-//   }, []);
-
-//   useEffect(() => {
-//     const { match: { params: { id } } } = props;
-//     const dogData = JSON.parse(localStorage.getItem('dogData')) || [];
-//     const selectedDog = dogData.find((dog) => dog.id === Number(id));
-//     setDogData(selectedDog || {});
-//     setFriends(selectedDog?.friends || []);
-//     setPresence(selectedDog?.presence || false);
-//   }, [ props ]);
-
-//   const handlePresenceChange = (event) => {
-//     setPresence(event.target.checked);
-//     const updatedDogData = { ...dogData, presence: event.target.checked };
-//     const existingData = JSON.parse(localStorage.getItem('dogData')) || [];
-//     const updatedData = existingData.map((dog) => (dog.id === updatedDogData.id ? updatedDogData : dog));
-//     localStorage.setItem('dogData', JSON.stringify(updatedData));
-//   };
-
-//   return (
-//     <div>
-//       <Link to="/">Back to Home</Link>
-//       <div>
-//         <div className="col-md-6 " style={{ width: "50%" }}>
-//           <img src={dogImage} className="rounded mx-auto d-bloc" alt="dogimage" /></div>
-//         <Link to={`/edit/${dogData.id}`}>Edit</Link>
-//         <h1>{dogData.name}</h1>
-//         <h3>{dogData.nickname}</h3>
-//         <p>{dogData.age} years old</p>
-//         <p>{dogData.description}</p>
-//         <div>
-//           <h4>Friends:</h4>
-//           <ul>
-//             {friends.map((friend) => (
-//               <li key={friend.id}>{friend.name}</li>
-//             ))}
-//           </ul>
-//         </div>
-//         <div>
-//           <label>
-//             Present{' '}
-//             <input type="checkbox" checked={presence} onChange={handlePresenceChange} />
-//           </label>
-//         </div>
-//       </div>
-//     </div>
-//   );
-// }
 
 
 
@@ -259,15 +196,20 @@ export default function Allprofile(props) {
   const handleFriendSelection = (event) => {
     const friendName = event.target.value;
 
-    if (event.target.checked) {
-      // Add the selected friend to the array
-      const friendToAdd = selectedDog.friends.find(friend => friend.name === friendName);
-      setSelectedFriends([ ...selectedFriends, friendToAdd ]);
 
-    } else {
-      // Remove the unselected friend from the array
-      setSelectedFriends(selectedFriends.filter(friend => friend !== friendName));
-    }
+    //if (event.target.checked) {
+    // Add the selected friend to the array
+    const friendToAdd = selectedDog.friends.find(friend => friend.name === friendName);
+    setSelectedFriends([ ...selectedFriends, friendToAdd ]);
+    console.log("aa");
+    console.log(selectedDog);
+    console.log(friendToAdd);
+
+
+    // } else {
+    // Remove the unselected friend from the array
+    //   setSelectedFriends(selectedFriends.filter(friend => friend !== friendName));
+    //}
   };
 
 
@@ -295,11 +237,12 @@ export default function Allprofile(props) {
           <h4>Nickname: {selectedDog.nickname}</h4>
           <h4>Age: {selectedDog.age}</h4>
           <h4>Bio: {selectedDog.description}</h4>
-          <h4>Friends:</h4>
           {selectedDog.friends && selectedDog.friends.length > 0 && (
             <>
               <h4>Friends:</h4>
+
               {selectedDog.friends.map(friend => (
+
                 <div key={friend}>
                   <input
                     type="checkbox"
@@ -314,7 +257,7 @@ export default function Allprofile(props) {
             </>
           )}
 
-          {selectedFriends.length > 0 && (
+          {/* {selectedFriends.length > 0 && (
             <>
               <h4>Selected Friends:</h4>
               {selectedFriends.map(friend => (
@@ -323,7 +266,7 @@ export default function Allprofile(props) {
                 </div>
               ))}
             </>
-          )}
+          )} */}
 
           <div>
             <input type="checkbox" id="presence" name="presence" />
