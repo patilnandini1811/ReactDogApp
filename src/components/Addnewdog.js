@@ -43,8 +43,6 @@ export default function Addnewdog(props) {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    console.log("selectedFriends............");
-    console.log(selectedFriends)
     const name = event.target.elements.name.value;
     const nickname = event.target.elements.nickname.value;
     const age = event.target.elements.age.value;
