@@ -3,11 +3,33 @@ import { Link } from 'react-router-dom';
 
 export default function Start(props) {
   const [ dogData, setDogData ] = useState(JSON.parse(localStorage.getItem('dogData')) || []);
+  // const [ myStyle, setmyStyle ] = useState({
+  //   color: 'white',
+  //   backgroundColor: 'blue'
+  // })
+  // const [ btntext, setBtnText ] = useState("In/Out")
+  // const toggleStyle = (id) => {
+  //   if (myStyle.color === 'white') {
+  //     setmyStyle({
+  //       color: 'green',
+  //       backgroundColor: 'white',
+  //       // border: '2px solid white'
+  //     })
+  //     setBtnText("In")
+  //   } else {
+  //     setmyStyle({
+  //       color: 'red',
+  //       backgroundColor: 'white',
+  //     })
+  //     setBtnText("Out")
+  //   }
+  // };
   const handleRemoveDog = (id) => {
     const updatedDogData = dogData.filter(dog => dog.id !== id);
     localStorage.setItem('dogData', JSON.stringify(updatedDogData));
     setDogData(updatedDogData);
-  };
+
+  }
 
   return (
     <>
@@ -20,7 +42,7 @@ export default function Start(props) {
             <ul>
               {dogData.map((dog) => (
                 <li key={dog.id}>
-                  <Link to={`/dog/${dog.id}`}>{dog.name}</Link> - {dog.age} years old
+                  <Link to={`/dog/${dog.id}`}>{dog.name}</Link>
                   <button onClick={() => handleRemoveDog(dog.id)}>X</button>
                   <i className="fa-duotone fa-xmark"></i>
                 </li>
@@ -86,5 +108,5 @@ export default function Start(props) {
 
 //     </>
 //   )
-// }
+// 
 

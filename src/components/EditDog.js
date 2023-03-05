@@ -8,14 +8,40 @@ export default function EditDog(props) {
   const [ dogImage, setDogImage ] = useState('');
   const { id } = useParams();
   const dogData = JSON.parse(localStorage.getItem('dogData')) || [];
-  const selectedDog = dogData.find(dog => dog.id === parseInt(id));
+  const selectedDog = dogData.find(dog => dog.id == parseInt(id));
   const [ name, setName ] = useState(selectedDog.name);
   const [ nickname, setNickname ] = useState(selectedDog.nickname);
   const [ age, setAge ] = useState(selectedDog.age);
   const [ description, setDescription ] = useState(selectedDog.description);
-  const [ selectedFriend, setSelectedFriend ] = useState(selectedDog.selectedFriend);
+  const [ selectedFriends, setSelectedFriends ] = useState(selectedDog.friends);
+
+  console.log("name");
+  console.log(name);
+
+  console.log("selectedDog.name");
+  console.log(selectedDog.name);
+
+
+  //const [ selectedFriends, setSelectedFriends ] = selectedDog.friends;
+
+  const handleChange = (event) => {
+    console.log("Inside MultiSelectFriendsDropdown.handleChange ")
+    const options = event.target.options;
+    console.log("options");
+    console.log(options);
+    const selectedValues = [];
+    for (let i = 0; i < options.length; i++) {
+      if (options[ i ].selected) {
+        selectedValues.push(options[ i ].value);
+      }
+    }
+    console.log("selectedValues");
+    console.log(selectedValues);
+    setSelectedFriends(selectedValues);
+  };
 
   const formRef = useRef(null);
+
   useEffect(() => {
     fetch('https://dog.ceo/api/breeds/image/random')
       .then(response => response.json())
@@ -33,14 +59,14 @@ export default function EditDog(props) {
           nickname: nickname,
           age: age,
           description: description,
-          selectedFriend: selectedFriend
+          friends: selectedFriends
         };
       } else {
         return dog;
       }
     });
     localStorage.setItem('dogData', JSON.stringify(updatedDogData));
-    formRef.current.reset();
+    // formRef.current.reset();
 
   };
 
@@ -55,13 +81,13 @@ export default function EditDog(props) {
             <form className="form1" ref={formRef} onSubmit={handleUpdateDog} >
               <div className="col-md-6 " style={{ width: "50%" }}>
                 <img src={dogImage} className="rounded mx-auto d-bloc" alt="dogimage" /></div>
-              <div className="form-group">
+              <div>
                 <label htmlFor="name">Name:</label>
                 <input
                   type="text"
-                  className="form-control"
                   id="name"
                   value={name}
+                  length="50"
                   onChange={(event) => setName(event.target.value)}
                 />
               </div>
@@ -96,14 +122,13 @@ export default function EditDog(props) {
                 ></textarea>
               </div>
               <div className="form-group">
-                <label htmlFor="selectedFriend">Friends:</label>
-                <input
-                  type="text"
-                  className="form-control"
-                  id="selectedFriend"
-                  value={selectedFriend}
-                  onChange={(event) => setSelectedFriend(event.target.value)}
-                />
+                <select multiple name="friends" value={selectedFriends} onChange={handleChange}>
+                  {dogData.map((option) => (
+                    <option key={option.id} value={option.id}>
+                      {option.name}
+                    </option>
+                  ))}
+                </select>
               </div>
             </form>
             <button className="btn btn-primary" onClick={handleUpdateDog}>Update</button>

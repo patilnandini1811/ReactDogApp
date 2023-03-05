@@ -86,9 +86,9 @@ body {
 }
 
 .btn {
-  margin-left: 100%;
-  margin-top: -51%;
-  background-color: green;
+  margin-left: 12%;
+  margin-top: 5%;
+
 }
 
 .list-switch {
@@ -158,10 +158,10 @@ input {
 }
 
 .goback {
-  margin-left: 110%;
+  margin-left: 10%;
   margin-top: 5%;
-  float: right;
-  margin-right: -183%;
+  float: left;
+  /* margin-right: -183%; */
 }
 
 p {
