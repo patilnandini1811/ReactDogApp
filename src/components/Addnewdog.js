@@ -63,12 +63,7 @@ export default function Addnewdog(props) {
     };
 
     // counter++;
-    console.log("dogData")
-    console.log(dogData)
     const updatedData = existingData.length ? [ ...existingData, dogData ] : [ dogData ];
-
-    console.log("updatedData")
-    console.log(updatedData)
 
     localStorage.setItem('dogData', JSON.stringify(updatedData));
     setDogs(updatedData);
